@@ -10,8 +10,8 @@ The chinook database can be downloaded from [here](https://video.udacity-data.co
 
 
 ### In this project there are 2 files:
-1. Queries.txt file that has the questions and the queries to get the answer to that question<br/>
-2. Results.pdf file which has the question, the visualization of the answer and its description<br/>
+1. [Queries.txt](https://github.com/SalmaAlmasry/Query-the-Chinook-Database/blob/main/Queries.txt) file that has the questions and the queries to get the answer to that question<br/>
+2. [Results.pdf](https://github.com/SalmaAlmasry/Query-the-Chinook-Database/blob/main/Results.pdf) file which has the question, the visualization of the answer and its description<br/>
 
 ### We answered many questions using queries and charts, here are some:
 1. Which genres have the best sales ?
