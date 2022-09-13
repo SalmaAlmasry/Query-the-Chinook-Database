@@ -1,0 +1,41 @@
+/* Query 1 */
+SELECT g.Name,
+       SUM(il.Quantity * il.UnitPrice) AS TotalSales
+FROM InvoiceLine AS il 
+JOIN Track AS t ON t.TrackId = il.TrackId
+JOIN Genre AS g ON g.GenreId = t.GenreId
+GROUP BY g.Name
+ORDER BY TotalSales DESC
+LIMIT 10
+
+/* Query 2 */
+SELECT a.Name,
+       COUNT(t.TrackId) AS tracks
+FROM Artist AS a
+JOIN Album AS alb ON a.ArtistId = alb.ArtistId
+JOIN Track AS t ON t.AlbumId = alb.AlbumId
+GROUP BY a.Name
+ORDER BY tracks DESC
+LIMIT 10
+
+/* Query 3 */
+SELECT c.Country,
+       COUNT(DISTINCT c.CustomerId) AS SpecialCustomers
+FROM Invoice AS i
+JOIN Customer AS c ON c.CustomerId = i.CustomerId
+WHERE i.total >
+    (SELECT AVG(total)
+     FROM Invoice)
+GROUP BY c.Country
+ORDER BY SpecialCustomers DESC
+LIMIT 7
+
+/* Query 4 */
+SELECT t.Composer,
+       SUM(il.UnitPrice * il.Quantity) AS profits
+FROM track AS t
+JOIN InvoiceLine AS il ON t.TrackId = il.TrackId
+WHERE t.Composer != "NULL"
+GROUP BY t.Composer
+ORDER BY profits DESC
+LIMIT 10
